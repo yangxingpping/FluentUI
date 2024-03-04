@@ -56,6 +56,39 @@ Rectangle{
         anchors.top: parent.top
         anchors.right: parent.right
         anchors.bottom: parent.bottom
+        Rectangle{
+            id: rightBottomSep
+            anchors.topMargin: 3
+            anchors.bottomMargin: 3
+            x: 0
+            y: 0
+            color: Qt.rgba(1,1,1,0.3)
+            height: parent.height 
+            width: 1
+
+        }
+        RoundButton {
+                id: btnRightBottom
+                radius: 1
+                anchors.centerIn: parent
+                //Material.background: Qt.rgba(1,1,1,0.0)
+                height: parent.height
+                icon.source: "qrc:/example/res/svg/mode_switching_icon.svg"
+                icon.color: "transparent"
+                icon.width: bottomMenuImgWidth - 4
+                icon.height: bottomMenuImgWidth - 4
+                spacing: 0
+                display: AbstractButton.IconOnly
+                Component.onCompleted: {
+                contentItem.color = mainBottomBasePane.bottomPaneNoSelectButtonColor
+                    //contentItem.color = mainBottomBasePane.bottomPaneNoSelectButtonColor
+                    console.log('btnRightBottom x %1 y %2 width %3 height %4 '.arg(x).arg(y).arg(width).arg(height))
+                }
+                onClicked:{
+                    console.log("call switch")
+                    bottomMenu.switchBottomMenu()
+                }
+        }
         
     }
     Connections{

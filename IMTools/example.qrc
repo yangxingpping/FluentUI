@@ -219,5 +219,6 @@
         <file>res/svg/Variable.svg</file>
         <file>res/svg/Work.svg</file>
         <file>qml-Qt6/pane/MainBottomPane.qml</file>
+        <file>res/svg/mode_switching_icon.svg</file>
     </qresource>
 </RCC>
