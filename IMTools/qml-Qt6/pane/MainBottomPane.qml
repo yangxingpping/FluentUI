@@ -88,6 +88,9 @@ Rectangle{
                     console.log("call switch")
                     bottomMenu.switchBottomMenu()
                 }
+                background: Rectangle{
+                    color: "transparent"
+                }
         }
         
     }
