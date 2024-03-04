@@ -6,6 +6,7 @@ Rectangle{
     id: mainBottomBasePane
     property var btnClickedBackgroundColor: "#6d829d" //Qt.rgba(0.215,0.322,0.471,0.7) // "#6d829d" //Qt.rgba(1,1,1,0.2)
     property var btnDefaultBackgroundColor: Qt.rgba(1,1,1,0.0)
+    property int rightBottomWidth: 86
     anchors{
         right: parent.left
         bottom: parent.bottom
@@ -37,13 +38,25 @@ Rectangle{
     Rectangle{
         id: rectBottomMenuMain
         
-        anchors.fill: parent
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        width: parent.width - mainBottomBasePane.rightBottomWidth
         
         color: "transparent"
         MainBottomMenu{
             id: bottomMenu
             color: "transparent"
         }
+    }
+    Rectangle{
+        id: rectBottomRight
+        color : "transparent"
+        anchors.left: rectBottomMenuMain.right
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        
     }
     Connections{
         target: bottomMenu
