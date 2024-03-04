@@ -8,19 +8,22 @@ import example
 import "../component"
 import "../global"
 import "../viewmodel"
+import "../pane"
 
 FluWindow {
-
     id:window
+    property color baseColor : "#375278"
     title: "FluentUI"
-    width: 960
-    height: 600
+    width: 1024
+    height: 768
     minimumWidth: 520
     minimumHeight: 200
     launchMode: FluWindowType.SingleTask
     fitsAppBarWindows: true
     appBar: FluAppBar {
         height: 30
+        color: window.baseColor
+        opacity: 0.3
         darkText: Lang.dark_mode
         showDark: true
         darkClickListener:(button)=>handleDarkChanged(button)
@@ -41,7 +44,7 @@ FluWindow {
     }
 
     onFirstVisible: {
-        timer_tour_delay.restart()
+        //timer_tour_delay.restart()
     }
 
     Timer{
@@ -59,6 +62,21 @@ FluWindow {
 
     Component.onDestruction: {
         FluEventBus.unRegisterEvent(event_checkupdate)
+    }
+
+    Rectangle {
+        y: parent.y + appBar.height
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: 44
+        //z: 1000
+        //color: "green"
+        MainTopPane{
+            
+            anchors.fill: parent
+            
+        }
+        
     }
 
     SystemTrayIcon {
@@ -205,6 +223,7 @@ FluWindow {
                     if(window.useSystemAppBar){
                         return 0
                     }
+                    return -5
                     return FluTools.isMacos() ? 20 : 0
                 }
                 displayMode:viewmodel_settings.displayMode

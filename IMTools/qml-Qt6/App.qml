@@ -6,7 +6,7 @@ import FluentUI
 
 Item {
     id: app
-
+    
     Connections{
         target: FluTheme
         function onDarkModeChanged(){
