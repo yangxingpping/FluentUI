@@ -94,7 +94,7 @@ Rectangle{
                 text: name
                 font.pixelSize: 10
                 //Material.background: Qt.rgba(1,1,1,0.0)
-                icon.source: imgPath + "Button/" + iconsource
+                icon.source: "qrc:/example/res/svg/" + iconsource //imgPath + "Button/" + iconsource
                 icon.color: "transparent"
                 icon.width: 30
                 icon.height: 30

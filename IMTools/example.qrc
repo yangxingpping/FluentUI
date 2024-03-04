@@ -199,5 +199,24 @@
         <file>qml/window/CrashWindow.qml</file>
         <file>qml/page/T_SplitLayout.qml</file>
         <file>qml-Qt6/pane/MainTopPane.qml</file>
+        <file>qml-Qt6/pane/MainBottomMenu.qml</file>
+        <file>res/svg/Diag.svg</file>
+        <file>res/svg/Extend.svg</file>
+        <file>res/svg/Prod.svg</file>
+        <file>res/svg/ProdAuto.svg</file>
+        <file>res/svg/ProdHome.svg</file>
+        <file>res/svg/ProdJog.svg</file>
+        <file>res/svg/ProdManual.svg</file>
+        <file>res/svg/ProdMDI.svg</file>
+        <file>res/svg/ProdNCFunc.svg</file>
+        <file>res/svg/ProdRapid.svg</file>
+        <file>res/svg/ProdSearch.svg</file>
+        <file>res/svg/ProdSingle.svg</file>
+        <file>res/svg/ProdTest.svg</file>
+        <file>res/svg/Prog.svg</file>
+        <file>res/svg/Service.svg</file>
+        <file>res/svg/Tool.svg</file>
+        <file>res/svg/Variable.svg</file>
+        <file>res/svg/Work.svg</file>
     </qresource>
 </RCC>
