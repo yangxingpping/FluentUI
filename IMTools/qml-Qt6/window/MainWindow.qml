@@ -199,8 +199,8 @@ FluWindow {
                 //                pageMode: FluNavigationViewType.Stack
                 //NoStack模式，每次切换都会销毁之前的页面然后创建一个新的页面，只需消耗少量内存，可以配合FluViewModel保存页面数据（推荐）
                 pageMode: FluNavigationViewType.NoStack
-                items: ItemsOriginal
-                footerItems:ItemsFooter
+                //items: ItemsOriginal
+                //footerItems:ItemsFooter
                 topPadding:{
                     if(window.useSystemAppBar){
                         return 0
@@ -208,7 +208,7 @@ FluWindow {
                     return FluTools.isMacos() ? 20 : 0
                 }
                 displayMode:viewmodel_settings.displayMode
-                logo: "qrc:/example/res/image/favicon.ico"
+                //logo: "qrc:/example/res/image/favicon.ico"
                 title:"FluentUI"
                 onLogoClicked:{
                     clickCount += 1
@@ -219,15 +219,15 @@ FluWindow {
                         clickCount = 0
                     }
                 }
-                autoSuggestBox:FluAutoSuggestBox{
-                    iconSource: FluentIcons.Search
-                    items: ItemsOriginal.getSearchData()
-                    placeholderText: Lang.search
-                    onItemClicked:
-                        (data)=>{
-                            ItemsOriginal.startPageByItem(data)
-                        }
-                }
+                // autoSuggestBox:FluAutoSuggestBox{
+                //     iconSource: FluentIcons.Search
+                //     items: ItemsOriginal.getSearchData()
+                //     placeholderText: Lang.search
+                //     onItemClicked:
+                //         (data)=>{
+                //             ItemsOriginal.startPageByItem(data)
+                //         }
+                // }
                 Component.onCompleted: {
                     ItemsOriginal.navigationView = nav_view
                     ItemsOriginal.paneItemMenu = nav_item_right_menu
