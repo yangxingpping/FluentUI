@@ -96,8 +96,8 @@ Rectangle{
                 //Material.background: Qt.rgba(1,1,1,0.0)
                 icon.source: "qrc:/example/res/svg/" + iconsource //imgPath + "Button/" + iconsource
                 icon.color: "transparent"
-                icon.width: 30
-                icon.height: 30
+                icon.width: 48
+                icon.height: 40
                 spacing: 0
                 display: AbstractButton.TextUnderIcon
                 onClicked: {
