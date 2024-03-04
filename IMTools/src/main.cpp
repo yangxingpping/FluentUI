@@ -62,6 +62,10 @@ int main(int argc, char *argv[])
 #endif
 #endif
     QGuiApplication app(argc, argv);
+	QSurfaceFormat format;
+	format.setSamples(8);
+	QSurfaceFormat::setDefaultFormat(format);
+
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("AppInfo",AppInfo::getInstance());
     engine.rootContext()->setContextProperty("SettingsHelper",SettingsHelper::getInstance());

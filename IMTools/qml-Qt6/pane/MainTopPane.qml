@@ -14,6 +14,7 @@ Rectangle {
         }
         width: parent.width * 0.874
         height: parent.height
+        color: "transparent"
         //color: "yellow"
         Component.onCompleted: {
             console.debug("main top left width %1, heigth %2".arg(width).arg(height));
@@ -37,13 +38,13 @@ Rectangle {
 
     Rectangle{
         id: mainTopRightPane
+        color: "transparent"
         anchors{
             right: parent.right
             top: title.bottom
         }
         height: parent.height
         width: parent.width - mainTopLeftPane.width - 4
-        //color: "black"
         Shape {
             ShapePath {
                 id: mainTopRightRealPanel

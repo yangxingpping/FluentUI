@@ -70,6 +70,7 @@ FluWindow {
         anchors.left: parent.left
         anchors.right: parent.right
         height: 44
+        color: "transparent"
         //z: 1000
         //color: "green"
         MainTopPane{
@@ -85,6 +86,7 @@ FluWindow {
         anchors.bottom: parent.bottom
         height: 62 + 2
         //color: "red"
+        color: "transparent"
         MainBottomPane{
             id: bottomPane
             anchors.fill: parent
