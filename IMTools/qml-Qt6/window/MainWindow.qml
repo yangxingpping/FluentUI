@@ -65,6 +65,7 @@ FluWindow {
     }
 
     Rectangle {
+        id: rectTopPane
         y: parent.y + appBar.height
         anchors.left: parent.left
         anchors.right: parent.right
@@ -72,11 +73,21 @@ FluWindow {
         //z: 1000
         //color: "green"
         MainTopPane{
-            
+            id: topPane
             anchors.fill: parent
-            
         }
-        
+    }
+
+    Rectangle{
+        id: rectBottomPane
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        height: 60
+        color: "red"
+        MainBottomMenu{
+            id: bottomMenu
+        }
     }
 
     SystemTrayIcon {
@@ -144,7 +155,10 @@ FluWindow {
 
     Flipable{
         id:flipable
-        anchors.fill: parent
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        height: 0
         property bool flipped: false
         property real flipAngle: 0
         transform: Rotation {
