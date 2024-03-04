@@ -83,7 +83,7 @@ FluWindow {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        height: 60
+        height: 62
         color: "red"
         MainBottomMenu{
             id: bottomMenu
