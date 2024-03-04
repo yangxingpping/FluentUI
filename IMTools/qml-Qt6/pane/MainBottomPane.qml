@@ -42,6 +42,7 @@ Rectangle{
         color: "transparent"
         MainBottomMenu{
             id: bottomMenu
+            color: "transparent"
         }
     }
     Connections{

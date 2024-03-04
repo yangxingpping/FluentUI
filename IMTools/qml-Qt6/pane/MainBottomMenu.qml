@@ -28,10 +28,13 @@ Rectangle{
                 console.log(checkedButton)
                 if(checkedButton){
                     checkedButton.contentItem.color =  mainBottomBasePane.bottomPaneNoSelectButtonColor
+                    console.log("clicked type %1".arg(checkedButton))
+                    checkedButton.background.color = "transparent"
                     //checkedButton.Material.background = mainBottomBasePane.btnDefaultBackgroundColor
                 }
 
-                btn.contentItem.color = mainBottomBasePane.bottomPaneSelectedButtonColor
+                btn.contentItem.color = mainBottomBasePane.bottomPaneSelectedButtonColor 
+                btn.background.color = mainBottomBasePane.btnClickedBackgroundColor
                 checkedButton = btn
                 //btn.Material.background = mainBottomBasePane.btnClickedBackgroundColor
                 pagemain.switchPageFromQML(btn.index)
@@ -103,7 +106,9 @@ Rectangle{
                 onClicked: {
                     sClickBottomMainMenu(index)
                 }
-                
+                background: Rectangle{
+                    color: "transparent"
+                }
                 Component.onCompleted: {
                     contentItem.color =  mainBottomBasePane.bottomPaneNoSelectButtonColor
                     Material.background = mainBottomBasePane.btnDefaultBackgroundColor
