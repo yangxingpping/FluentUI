@@ -78,6 +78,7 @@ Rectangle{
             topMargin: 0
             bottomMargin: 0
             leftMargin: 68
+            interactive: false
             rightMargin: mainBottomBasePane.width > 700 ? 68 : 10
             anchors.centerIn: parent
             width: parent.width
@@ -138,7 +139,7 @@ Rectangle{
                 pagemain.switchPageFromQML(btn.index)
             }
             Component.onCompleted: {
-                console.log("button group count=%1".arg(btnsBotton.buttons))
+                console.log("button group count=%1".arg(groupBtnDetails.buttons))
             }
         }
         ListModel {
@@ -156,6 +157,7 @@ Rectangle{
             id: rowBottomDetails
             topMargin: 0
             bottomMargin: 0
+            interactive: false
             leftMargin: 68/2
             rightMargin: 10 //mainBottomBasePane.width > 700 ? 68 : 10
             orientation: ListView.Horizontal
@@ -168,13 +170,15 @@ Rectangle{
                 radius: 2
                 text: name
                 font.pixelSize: mainBottomBasePane.width > 700 ? 10 : 8 //10
-                //Material.background: Qt.rgba(1,1,1,0.0)
                 icon.source: "qrc:/example/res/svg/" + iconsource // imgPath + "Button/" + iconsource
                 icon.color: "transparent"
                 icon.width: 30
                 icon.height: 30
                 spacing: 0
                 display: AbstractButton.TextUnderIcon
+                background: Rectangle{
+                    color: "transparent"
+                }
                 onClicked: {
                     sClickBottomDetailMenu(index)
                 }
