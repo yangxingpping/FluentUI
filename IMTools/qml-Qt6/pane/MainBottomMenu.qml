@@ -37,9 +37,6 @@ Rectangle{
                 checkedButton = btn
                 //pagemain.switchPageFromQML(btn.index)
             }
-            Component.onCompleted: {
-                console.log("button group count=%1".arg(btnsBotton.buttons.count))
-            }
         }
         ListModel {
             id: contactModel
@@ -110,8 +107,11 @@ Rectangle{
                     contentItem.color =  mainBottomBasePane.bottomPaneNoSelectButtonColor
                 }
             }
-            Component.Component.onCompleted: {
+            Component.onCompleted: {
                 console.debug("main menu count %1".arg(count))
+                btnsBotton.checkedButton = btnsBotton.buttons[0]
+                btnsBotton.buttons[0].contentItem.color = mainBottomBasePane.bottomPaneSelectedButtonColor 
+                btnsBotton.buttons[0].background.color = mainBottomBasePane.btnClickedBackgroundColor
             }
         }
     }
@@ -183,6 +183,15 @@ Rectangle{
                     //Material.background = mainBottomBasePane.btnDefaultBackgroundColor
                 }
             }
+            
+            Component.onCompleted: {
+                console.debug("list view detail count %1".arg(count))
+                console.debug("main menu count %1".arg(count))
+                groupBtnDetails.checkedButton = groupBtnDetails.buttons[0]
+                groupBtnDetails.buttons[0].contentItem.color = mainBottomBasePane.bottomPaneSelectedButtonColor 
+                groupBtnDetails.buttons[0].background.color = mainBottomBasePane.btnClickedBackgroundColor
+            }
+            
         }
     }
 
