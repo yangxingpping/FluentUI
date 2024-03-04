@@ -30,14 +30,12 @@ Rectangle{
                     checkedButton.contentItem.color =  mainBottomBasePane.bottomPaneNoSelectButtonColor
                     console.log("clicked type %1".arg(checkedButton))
                     checkedButton.background.color = "transparent"
-                    //checkedButton.Material.background = mainBottomBasePane.btnDefaultBackgroundColor
                 }
 
                 btn.contentItem.color = mainBottomBasePane.bottomPaneSelectedButtonColor 
                 btn.background.color = mainBottomBasePane.btnClickedBackgroundColor
                 checkedButton = btn
-                //btn.Material.background = mainBottomBasePane.btnClickedBackgroundColor
-                pagemain.switchPageFromQML(btn.index)
+                //pagemain.switchPageFromQML(btn.index)
             }
             Component.onCompleted: {
                 console.log("button group count=%1".arg(btnsBotton.buttons.count))
@@ -96,7 +94,6 @@ Rectangle{
                 radius: 2
                 text: name
                 font.pixelSize: 10
-                //Material.background: Qt.rgba(1,1,1,0.0)
                 icon.source: "qrc:/example/res/svg/" + iconsource //imgPath + "Button/" + iconsource
                 icon.color: "transparent"
                 icon.width: 48
@@ -111,8 +108,10 @@ Rectangle{
                 }
                 Component.onCompleted: {
                     contentItem.color =  mainBottomBasePane.bottomPaneNoSelectButtonColor
-                    //Material.background = mainBottomBasePane.btnDefaultBackgroundColor
                 }
+            }
+            Component.Component.onCompleted: {
+                console.debug("main menu count %1".arg(count))
             }
         }
     }
@@ -132,12 +131,10 @@ Rectangle{
                 console.log(checkedButton)
                 if(checkedButton){
                     checkedButton.contentItem.color =  mainBottomBasePane.bottomPaneNoSelectButtonColor
-                    //checkedButton.Material.background =  mainBottomBasePane.btnDefaultBackgroundColor
                 }
 
                 btn.contentItem.color = mainBottomBasePane.bottomPaneSelectedButtonColor
                 checkedButton = btn
-                //btn.Material.background = mainBottomBasePane.btnClickedBackgroundColor
                 pagemain.switchPageFromQML(btn.index)
             }
             Component.onCompleted: {
@@ -148,7 +145,7 @@ Rectangle{
             id: detailModel
             ListElement {
                 name: qsTr("Prod")
-                iconsource: "Prod.png"
+                iconsource: "Prod.svg"
             }
             ListElement {
                 name: qsTr("Prog")
@@ -172,7 +169,7 @@ Rectangle{
                 text: name
                 font.pixelSize: mainBottomBasePane.width > 700 ? 10 : 8 //10
                 //Material.background: Qt.rgba(1,1,1,0.0)
-                icon.source: imgPath + "Button/" + iconsource
+                icon.source: "qrc:/example/res/svg/" + iconsource // imgPath + "Button/" + iconsource
                 icon.color: "transparent"
                 icon.width: 30
                 icon.height: 30
@@ -200,15 +197,6 @@ Rectangle{
             NumberAnimation { target: rectBottomMenuDetail; property: "height"; duration: 600; from: 0; to: mainBottomBasePane.height; easing.type: Easing.InOutQuad }
             onFinished: {
                 console.log("animation completed...")
-                /*if(controllerBottom.toEnd){
-                    rectBottomMenuMain.visible = false
-                    rectBottomMenuDetail.visible = true
-                }
-                else{
-                    rectBottomMenuMain.visible = true
-                    rectBottomMenuDetail.visible = false
-                }*/
-                
             }
         }
     }

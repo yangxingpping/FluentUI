@@ -7,7 +7,7 @@ Rectangle{
     property var btnClickedBackgroundColor: "#6d829d" //Qt.rgba(0.215,0.322,0.471,0.7) // "#6d829d" //Qt.rgba(1,1,1,0.2)
     property var btnDefaultBackgroundColor: Qt.rgba(1,1,1,0.0)
     anchors{
-        right: rectRightBottom.left
+        right: parent.left
         bottom: parent.bottom
         left: parent.left
         bottomMargin: 2
