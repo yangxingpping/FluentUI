@@ -132,9 +132,12 @@ Rectangle{
                 console.log(checkedButton)
                 if(checkedButton){
                     checkedButton.contentItem.color =  mainBottomBasePane.bottomPaneNoSelectButtonColor
+                    console.log("clicked type %1".arg(checkedButton))
+                    checkedButton.background.color = "transparent"
                 }
 
-                btn.contentItem.color = mainBottomBasePane.bottomPaneSelectedButtonColor
+                btn.contentItem.color = mainBottomBasePane.bottomPaneSelectedButtonColor 
+                btn.background.color = mainBottomBasePane.btnClickedBackgroundColor
                 checkedButton = btn
                 pagemain.switchPageFromQML(btn.index)
             }

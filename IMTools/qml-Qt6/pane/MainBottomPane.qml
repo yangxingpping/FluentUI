@@ -4,6 +4,8 @@ import QtQuick.Shapes 1.5
 
 Rectangle{
     id: mainBottomBasePane
+    property var bottomPaneSelectedButtonColor: Qt.rgba(1,1,1,1)
+    property var bottomPaneNoSelectButtonColor: Qt.rgba(1,1,1,0.6)
     property var btnClickedBackgroundColor: "#6d829d" //Qt.rgba(0.215,0.322,0.471,0.7) // "#6d829d" //Qt.rgba(1,1,1,0.2)
     property var btnDefaultBackgroundColor: Qt.rgba(1,1,1,0.0)
     property int rightBottomWidth: 86
@@ -75,12 +77,12 @@ Rectangle{
                 height: parent.height
                 icon.source: "qrc:/example/res/svg/mode_switching_icon.svg"
                 icon.color: "transparent"
-                icon.width: bottomMenuImgWidth - 4
-                icon.height: bottomMenuImgWidth - 4
+                icon.width: rectBottomRight.width - 10
+                icon.height: rectBottomRight.height - 10
                 spacing: 0
                 display: AbstractButton.IconOnly
                 Component.onCompleted: {
-                contentItem.color = mainBottomBasePane.bottomPaneNoSelectButtonColor
+                    contentItem.color = mainBottomBasePane.bottomPaneNoSelectButtonColor
                     //contentItem.color = mainBottomBasePane.bottomPaneNoSelectButtonColor
                     console.log('btnRightBottom x %1 y %2 width %3 height %4 '.arg(x).arg(y).arg(width).arg(height))
                 }
