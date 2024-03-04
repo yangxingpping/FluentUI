@@ -40,6 +40,7 @@ target_compile_definitions(fluentuiplugin
 
 if (FLUENTUI_BUILD_EXAMPLES)
     add_subdirectory(example)
+    add_subdirectory(IMTools)
 endif ()
 
 message("------------------------ FluentUI ------------------------")
