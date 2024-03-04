@@ -111,7 +111,7 @@ Rectangle{
                 }
                 Component.onCompleted: {
                     contentItem.color =  mainBottomBasePane.bottomPaneNoSelectButtonColor
-                    Material.background = mainBottomBasePane.btnDefaultBackgroundColor
+                    //Material.background = mainBottomBasePane.btnDefaultBackgroundColor
                 }
             }
         }
@@ -132,12 +132,12 @@ Rectangle{
                 console.log(checkedButton)
                 if(checkedButton){
                     checkedButton.contentItem.color =  mainBottomBasePane.bottomPaneNoSelectButtonColor
-                    checkedButton.Material.background =  mainBottomBasePane.btnDefaultBackgroundColor
+                    //checkedButton.Material.background =  mainBottomBasePane.btnDefaultBackgroundColor
                 }
 
                 btn.contentItem.color = mainBottomBasePane.bottomPaneSelectedButtonColor
                 checkedButton = btn
-                btn.Material.background = mainBottomBasePane.btnClickedBackgroundColor
+                //btn.Material.background = mainBottomBasePane.btnClickedBackgroundColor
                 pagemain.switchPageFromQML(btn.index)
             }
             Component.onCompleted: {
@@ -183,7 +183,7 @@ Rectangle{
                 }
                 Component.onCompleted: {
                     contentItem.color =  mainBottomBasePane.bottomPaneNoSelectButtonColor
-                    Material.background = mainBottomBasePane.btnDefaultBackgroundColor
+                    //Material.background = mainBottomBasePane.btnDefaultBackgroundColor
                 }
             }
         }
