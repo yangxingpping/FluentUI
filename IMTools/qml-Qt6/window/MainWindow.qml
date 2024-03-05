@@ -25,7 +25,7 @@ FluWindow {
         color: window.baseColor
         opacity: 0.3
         darkText: Lang.dark_mode
-        showDark: true
+        //showDark: true
         darkClickListener:(button)=>handleDarkChanged(button)
         closeClickListener: ()=>{dialog_close.open()}
         z:7
