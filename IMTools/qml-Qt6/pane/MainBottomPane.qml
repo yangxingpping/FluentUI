@@ -90,7 +90,7 @@ Rectangle{
                 onClicked:{
                     console.log("call switch")
                     bottomMenu.switchBottomMenu()
-                    FluApp.navigate("/login");
+                    //FluApp.navigate("/login");
                     //FluApp.navigate("qrc:/example/qml/window/LoginWindow.qml");
                     //FluApp.exit(0);
                 }
