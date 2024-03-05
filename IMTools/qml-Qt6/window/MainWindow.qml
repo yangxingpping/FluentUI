@@ -365,6 +365,7 @@ FluWindow {
 
     FluText{
         text:"fps %1".arg(fps_item.fps)
+        visible: false
         opacity: 0.3
         anchors{
             bottom: parent.bottom

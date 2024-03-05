@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Shapes 1.5
+import FluentUI 1.0
 
 Rectangle{
     id: mainBottomBasePane
@@ -89,6 +90,9 @@ Rectangle{
                 onClicked:{
                     console.log("call switch")
                     bottomMenu.switchBottomMenu()
+                    FluApp.navigate("/login");
+                    //FluApp.navigate("qrc:/example/qml/window/LoginWindow.qml");
+                    //FluApp.exit(0);
                 }
                 background: Rectangle{
                     color: "transparent"
