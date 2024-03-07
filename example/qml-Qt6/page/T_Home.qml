@@ -273,5 +273,14 @@ FluScrollablePage{
         model: ItemsOriginal.getRecentlyUpdatedData()
         delegate: com_item
     }
+    Rectangle{
+        width: parent.width
+        height: 200
+        color: "red"
+        FluTreeTableView {
+            anchors.fill: parent
+            anchors.margins: 10
+        }
+    }
 
 }

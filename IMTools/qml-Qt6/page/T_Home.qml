@@ -274,4 +274,10 @@ FluScrollablePage{
         delegate: com_item
     }
 
+    Rectangle{
+        width: parent.width
+        height: 200
+        color: "red"
+    }
+
 }
