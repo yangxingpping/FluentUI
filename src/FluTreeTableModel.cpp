@@ -76,7 +76,7 @@ QHash<int, QByteArray> FluTreeTableModel::roleNames() const
 void FluTreeTableModel::resetItems()
 {
     beginResetModel();
-    for(int i=0; i<10; i++)
+    for(int i=0; i<2; i++)
     {
         QSharedPointer<MyTreeItem> lv1{new MyTreeItem};
         lv1->parentItem = rootItem;
@@ -85,7 +85,7 @@ void FluTreeTableModel::resetItems()
         lv1->name = QString("lv1-%1").arg(i);
         lv1->detail = QString("detail-%1").arg(i);
         lv1->fileSize = QString("size-%1").arg(i);
-        for(int j=0; j<10; j++)
+        for(int j=0; j<2; j++)
         {
             QSharedPointer<MyTreeItem> lv2{new MyTreeItem};
             lv2->parentItem = lv1;
@@ -93,7 +93,7 @@ void FluTreeTableModel::resetItems()
             lv2->row = j;
             lv2->name = QString("lv2-%1-%2").arg(i).arg(j);
             lv2->detail = QString("detail-%1-%2").arg(i).arg(j);
-			for (int k = 0; k < 2; k++)
+			/*for (int k = 0; k < 2; k++)
 			{
 				QSharedPointer<MyTreeItem> lv3{ new MyTreeItem };
 				lv3->parentItem = lv1;
@@ -102,7 +102,7 @@ void FluTreeTableModel::resetItems()
 				lv3->name = QString("lv3-%1-%2").arg(j).arg(k);
 				lv3->detail = QString("detail-%1-%2").arg(j).arg(k);
                 lv3->fileSize = QString("size-%1-%2").arg(j).arg(k);
-			}
+			}*/
         }
     }
     endResetModel();
