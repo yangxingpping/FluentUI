@@ -198,7 +198,7 @@ FluObject {
                     FluText{
                         text: _super.moremsg
                         visible: _super.moremsg
-                        wrapMode : Text.WordWrap
+                        wrapMode : Text.WrapAnywhere
                         textColor: FluColors.Grey120
                         width: Math.min(implicitWidth,mcontrol.maxWidth)
                     }
