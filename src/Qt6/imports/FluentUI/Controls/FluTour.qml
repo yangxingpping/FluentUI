@@ -10,14 +10,14 @@ Popup{
     property Component nextButton: com_next_button
     property Component prevButton: com_prev_button
     property int index : 0
-    property string finishText: "结束导览"
-    property string nextText: "下一步"
-    property string previousText: "上一步"
+    property string finishText: qsTr("Finish")
+    property string nextText: qsTr("Next")
+    property string previousText: qsTr("Previous")
     id:control
     padding: 0
     parent: Overlay.overlay
-    width: parent.width
-    height: parent.height
+    width: d.parentWidth
+    height: d.parentHeight
     background: Item{}
     contentItem: Item{}
     onVisibleChanged: {
@@ -55,7 +55,24 @@ Popup{
         property var window: Window.window
         property point pos: Qt.point(0,0)
         property var step: steps[index]
-        property var target: step.target()
+        property var target: {
+            if(steps[index]){
+                return steps[index].target()
+            }
+            return undefined
+        }
+        property int parentHeight: {
+            if(control.parent){
+                return control.parent.height
+            }
+            return control.height
+        }
+        property int parentWidth: {
+            if(control.parent){
+                return control.parent.width
+            }
+            return control.width
+        }
     }
     Connections{
         target: d.window
@@ -107,7 +124,7 @@ Popup{
             ctx.fill()
         }
     }
-    FluArea{
+    FluFrame{
         id: layout_panne
         radius: 5
         width: 500
@@ -118,19 +135,32 @@ Popup{
                 return 1
             return 0
         }
-        x: Math.min(Math.max(0,d.pos.x+d.target.width/2-width/2),control.width-width)
+        x: {
+            if(d.target){
+                return Math.min(Math.max(0,d.pos.x+d.target.width/2-width/2),control.width-width)
+            }
+            return 0
+        }
         y: {
-            var ty=d.pos.y+d.target.height+control.targetMargins + 15
-            if((ty+height)>control.height)
-                return d.pos.y-height-control.targetMargins - 15
-            return ty
+            if(d.target){
+                var ty=d.pos.y+d.target.height+control.targetMargins + 15
+                if((ty+height)>control.height)
+                    return d.pos.y-height-control.targetMargins - 15
+                return ty
+            }
+            return 0
         }
         border.width: 0
         FluShadow{
             radius: 5
         }
         FluText{
-            text: d.step.title
+            text: {
+                if(d.step){
+                    return d.step.title
+                }
+                return ""
+            }
             font: FluTextStyle.BodyStrong
             elide: Text.ElideRight
             anchors{
@@ -148,7 +178,12 @@ Popup{
             wrapMode: Text.WrapAnywhere
             maximumLineCount: 4
             elide: Text.ElideRight
-            text: d.step.description
+            text: {
+                if(d.step){
+                    return d.step.description
+                }
+                return ""
+            }
             anchors{
                 top: parent.top
                 left: parent.left
@@ -199,7 +234,17 @@ Popup{
     FluIcon{
         iconSource: layout_panne.dir?FluentIcons.FlickUp:FluentIcons.FlickDown
         color: layout_panne.color
-        x: d.pos.x+d.target.width/2-10
-        y: d.pos.y+(layout_panne.dir?-height:d.target.height)
+        x: {
+            if(d.target){
+                return d.pos.x+d.target.width/2-10
+            }
+            return 0
+        }
+        y: {
+            if(d.target){
+                return d.pos.y+(layout_panne.dir?-height:d.target.height)
+            }
+            return 0
+        }
     }
 }

@@ -159,7 +159,7 @@ FluContentPage{
             FluCheckBox{
                 anchors.centerIn: parent
                 checked: true === options.checked
-                enableAnimation: false
+                animationEnabled: false
                 clickListener: function(){
                     var obj = table_view.getRow(row)
                     obj.checkbox = table_view.customItem(com_checbox,{checked:!options.checked})
@@ -239,7 +239,7 @@ FluContentPage{
                 }
                 FluCheckBox{
                     checked: true === root.seletedAll
-                    enableAnimation: false
+                    animationEnabled: false
                     Layout.alignment: Qt.AlignVCenter
                     clickListener: function(){
                         root.seletedAll = !root.seletedAll
@@ -275,6 +275,27 @@ FluContentPage{
             }
             onCommit: {
                 editTextChaged(editText)
+                tableView.closeEditor()
+            }
+        }
+    }
+
+    Component{
+        id:com_auto_suggestbox
+        FluAutoSuggestBox {
+            id: textbox
+            anchors.fill: parent
+            focus: true
+            Component.onCompleted: {
+                var data = ["傲来国界花果山水帘洞","傲来国界坎源山脏水洞","大唐国界黑风山黑风洞","大唐国界黄风岭黄风洞","大唐国界骷髅山白骨洞","宝象国界碗子山波月洞","宝象国界平顶山莲花洞","宝象国界压龙山压龙洞","乌鸡国界号山枯松涧火云洞","乌鸡国界衡阳峪黑水河河神府"]
+                var result = data.map(function(item) {
+                    return {title: item};
+                });
+                items = result
+                textbox.text= String(display)
+            }
+            onCommit: {
+                editTextChaged(textbox.text)
                 tableView.closeEditor()
             }
         }
@@ -390,7 +411,7 @@ FluContentPage{
         }
     }
 
-    FluArea{
+    FluFrame{
         id:layout_controls
         anchors{
             left: parent.left
@@ -490,6 +511,7 @@ FluContentPage{
             {
                 title: qsTr("Address"),
                 dataIndex: 'address',
+                editDelegate: com_auto_suggestbox,
                 width:200,
                 minimumWidth:100,
                 maximumWidth:250
@@ -506,7 +528,8 @@ FluContentPage{
                 dataIndex: 'longstring',
                 width:200,
                 minimumWidth:100,
-                maximumWidth:300
+                maximumWidth:300,
+                editMultiline: true
             },
             {
                 title: qsTr("Options"),

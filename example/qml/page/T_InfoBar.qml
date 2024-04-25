@@ -9,11 +9,10 @@ FluScrollablePage{
 
     title: qsTr("InfoBar")
 
-    FluArea{
+    FluFrame{
         Layout.fillWidth: true
-        Layout.topMargin: 20
-        height: 270
-        paddings: 10
+        Layout.preferredHeight: 270
+        padding: 10
         ColumnLayout{
             spacing: 14
             anchors{
@@ -47,20 +46,20 @@ FluScrollablePage{
             FluButton{
                 text: qsTr("InfoBar that needs to be turned off manually")
                 onClicked: {
-                    showInfo("This is an InfoBar in the Info Style",0,"Manual shutdown is supported")
+                    showInfo(qsTr("This is an InfoBar in the Info Style"),0,qsTr("Manual shutdown is supported"))
                 }
             }
             FluButton{
                 text:"Loading"
                 onClicked: {
-                    showLoading(qsTr("Loading..."))
+                    showLoading()
                 }
             }
         }
     }
     CodeExpander{
         Layout.fillWidth: true
-        Layout.topMargin: -1
+        Layout.topMargin: -6
         code:'showInfo(qsTr("This is an InfoBar in the Info Style"))
 
 showWarning(qsTr("This is an InfoBar in the Warning Style"))

@@ -5,11 +5,11 @@ import FluentUI
 FluIconButton {
     id:control
     property var current : ["Ctrl","Shift","A"]
-    property string title: "激活快捷键"
-    property string message: "按下组合键以更改此快捷键"
-    property string positiveText: "保存"
-    property string neutralText: "取消"
-    property string negativeText: "重置"
+    property string title: qsTr("Activate the Shortcut")
+    property string message: qsTr("Press the key combination to change the shortcut")
+    property string positiveText: qsTr("Save")
+    property string neutralText: qsTr("Cancel")
+    property string negativeText: qsTr("Reset")
     signal accepted()
     QtObject{
         id: d
@@ -131,10 +131,9 @@ FluIconButton {
             width: Math.max(item_text.implicitWidth+12,28)
             height: Math.max(item_text.implicitHeight,28)
             radius: 4
-            Text{
+            FluText{
                 id:item_text
                 color: FluTheme.dark ? Qt.rgba(0,0,0,1)  : Qt.rgba(1,1,1,1)
-                font.pixelSize: 13
                 text: keyText
                 anchors.centerIn: parent
             }

@@ -5,26 +5,26 @@ import QtQuick.Window 2.15
 import FluentUI 1.0
 
 Popup {
-    id: popup
+    id: control
     padding: 0
     modal:true
     parent: Overlay.overlay
-    x: Math.round((parent.width - width) / 2)
-    y: Math.round((parent.height - height) / 2)
-    closePolicy: Popup.CloseOnEscape
+    x: Math.round((d.parentWidth - width) / 2)
+    y: Math.round((d.parentHeight - height) / 2)
+    closePolicy: Popup.NoAutoClose
     enter: Transition {
         NumberAnimation {
             property: "opacity"
-            duration: FluTheme.enableAnimation ? 83 : 0
+            duration: FluTheme.animationEnabled ? 83 : 0
             from:0
             to:1
         }
     }
-    height:Math.min(implicitHeight,parent.height)
+    height:Math.min(implicitHeight,d.parentHeight)
     exit:Transition {
         NumberAnimation {
             property: "opacity"
-            duration: FluTheme.enableAnimation ? 83 : 0
+            duration: FluTheme.animationEnabled ? 83 : 0
             from:1
             to:0
         }
@@ -36,5 +36,19 @@ Popup {
             radius: 5
         }
     }
+    QtObject{
+        id:d
+        property int parentHeight: {
+            if(control.parent){
+                return control.parent.height
+            }
+            return control.height
+        }
+        property int parentWidth: {
+            if(control.parent){
+                return control.parent.width
+            }
+            return control.width
+        }
+    }
 }
-

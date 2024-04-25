@@ -13,10 +13,12 @@ FluWindow {
     height: 400
     fixSize: true
     showMinimize: false
-    showStayTop: false
-    stayTop:true
 
     property string crashFilePath
+
+    Component.onCompleted: {
+        window.stayTop = true
+    }
 
     onInitArgument:
         (argument)=>{
@@ -69,7 +71,7 @@ FluWindow {
         FluFilledButton{
             text: qsTr("Restart Program")
             onClicked: {
-                FluApp.exit(931)
+                FluRouter.exit(931)
             }
         }
     }
